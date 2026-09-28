@@ -85,3 +85,25 @@ The execution time of both implementations can then be compared to demonstrate t
 In this part, matrix multiplication is implemented using the **cuBLAS library**.
 
 The cuBLAS implementation is used to compare the performance of a highly optimized NVIDIA library against the custom CUDA implementations developed in the previous parts.
+
+---
+
+# Performance Results
+
+The execution time of each implementation was measured using the same matrix size and experimental conditions. The results are summarized below.
+
+| Implementation      | Execution Time (ms) |
+| ------------------- | ------------------: |
+| CPU                 |         `8895.6`    |
+| GPU – Global Memory |         `115.56`    |
+| GPU – Shared Memory |         `20.51`     |
+| GPU – Non-Coalesced |         `29.34`     |
+| GPU – Coalesced     |         `9.2`       |
+| GPU – cuBLAS        |         `0.619`     |
+
+> **Note:** All measurements were performed using the same matrix size and input data.
+
+### Performance Comparison
+
+The results demonstrate the performance differences between the CPU implementation, the basic CUDA implementation (Global Memory), and the optimized CUDA versions using **Shared Memory**, **Memory Coalescing**, and **cuBLAS**.
+
